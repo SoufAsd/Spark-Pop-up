@@ -37,6 +37,7 @@
             $(".spark-popup .spark-popup-nav:nth-child(2)").css("background-image", types[settings.type])
             $(".spark-popup .spark-popup-nav:nth-child(2)").append("<div class='circle'></div><div class='shadow scale'></div>")
             $(".circle").append('<img src="img/' + settings.type + '.svg" class="shape" />')
+            $(".spark-popup .spark-popup-nav:nth-child(2)").append('<button class="confirmebutton" role="button"><span class="text">Ok</span></button>')
             if (!$("body").hasClass("spark-is-activate")) {
                 if ($(".spark-popup-overlay").length < 1) $("<div class='spark-popup-overlay'></div>").hide().prependTo("body")
                 $(".spark-popup-overlay").fadeIn("fast", function() {
@@ -52,6 +53,11 @@
                                     $(".spark-popup").addClass("re-rotate")
 
                                     $(".sm-close").click(function() {
+                                        el.closeSpark();
+                                        return false;
+                                    });
+
+                                    $(".confirmebutton-pushable").click(function() {
                                         el.closeSpark();
                                         return false;
                                     });
@@ -77,6 +83,7 @@
             $(".spark-popup .sm-close").remove()
             $(".circle").remove()
             $(".shadow").remove()
+            $(".confirmebutton-pushable").remove()
             $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated flyInLeft")
             $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated flyInRight")
 
