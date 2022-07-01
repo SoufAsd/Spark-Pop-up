@@ -57,7 +57,7 @@
                                         return false;
                                     });
 
-                                    $(".confirmebutton-pushable").click(function() {
+                                    $(".confirmebutton").click(function() {
                                         el.closeSpark();
                                         return false;
                                     });
@@ -83,7 +83,7 @@
             $(".spark-popup .sm-close").remove()
             $(".circle").remove()
             $(".shadow").remove()
-            $(".confirmebutton-pushable").remove()
+            $(".confirmebutton").remove()
             $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated flyInLeft")
             $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated flyInRight")
 
