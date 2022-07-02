@@ -12,7 +12,8 @@
     var defaults = {
         direction: "bottom",
         animation: "vertical",
-        type: "success"
+        type: "success",
+        button: "ok"
     };
 
     var types = {
@@ -35,9 +36,10 @@
         $.fn.openSpark = function() {
             el.addClass("opened").addClass("visible")
             $(".spark-popup .spark-popup-nav:nth-child(2)").css("background-image", types[settings.type])
+            $(".spark-popup .spark-popup-nav:nth-child(2)").append('<div class="close-button"><div class="leftright"></div><div class="rightleft"></div></div>')
             $(".spark-popup .spark-popup-nav:nth-child(2)").append("<div class='circle'></div><div class='shadow scale'></div>")
             $(".circle").append('<img src="img/' + settings.type + '.svg" class="shape" />')
-            $(".spark-popup .spark-popup-nav:nth-child(2)").append('<button class="confirmebutton" role="button"><span class="text">Ok</span></button>')
+            $(".spark-popup .spark-popup-nav:nth-child(2)").append('<button class="confirmebutton" role="button"><span class="text">' + settings.button + '</span></button>')
             if (!$("body").hasClass("spark-is-activate")) {
                 if ($(".spark-popup-overlay").length < 1) $("<div class='spark-popup-overlay'></div>").hide().prependTo("body")
                 $(".spark-popup-overlay").fadeIn("fast", function() {
@@ -52,7 +54,7 @@
                                 if (e.originalEvent.propertyName == '-webkit-transform' || e.originalEvent.propertyName == 'transform' || e.originalEvent.propertyName == '-o-transform' || e.originalEvent.propertyName == '-moz-transform') {
                                     $(".spark-popup").addClass("re-rotate")
 
-                                    $(".sm-close").click(function() {
+                                    $(".close-button").click(function() {
                                         el.closeSpark();
                                         return false;
                                     });
@@ -62,8 +64,8 @@
                                         return false;
                                     });
 
-                                    $(".spark-popup .spark-popup-nav:first-child .nav-inner").addClass("animated flyInLeft")
-                                    $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").addClass("animated flyInRight")
+                                    $(".spark-popup .spark-popup-nav:first-child .nav-inner").addClass("animated toLeft")
+                                    $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").addClass("animated toRight")
                                     $(".spark-popup-overlay:not(.clicked)").addClass("clicked").click(function() {
                                         el.closeSpark();
                                     });
@@ -82,10 +84,11 @@
             $(".spark-popup").addClass("animated").removeClass("re-rotate")
             $(".spark-popup .sm-close").remove()
             $(".circle").remove()
+            $(".close-button").remove()
             $(".shadow").remove()
             $(".confirmebutton").remove()
-            $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated flyInLeft")
-            $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated flyInRight")
+            $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated toLeft")
+            $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated toRight")
 
             if ($("body").hasClass("spark-is-activate")) {
                 $(".spark-popup").find(".spark-popup-nav").removeClass("animated")

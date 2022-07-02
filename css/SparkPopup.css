@@ -64,7 +64,6 @@ body.spark-is-activate {
 }
 
 .spark-popup-overlay {
-    cursor: pointer;
     height: 100%;
     width: 100%;
     background: #8a8a8a;
@@ -96,7 +95,7 @@ body.spark-is-activate {
     height: 100%;
     position: absolute;
     top: 0;
-    background: #e6e6e6;
+    background: #f7f7f7;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -112,7 +111,6 @@ body.spark-is-activate {
 }
 
 .spark-popup .spark-popup-nav .nav-inner {
-    display: none;
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
     -o-animation-duration: 1s;
@@ -152,14 +150,14 @@ body.spark-is-activate .spark-popup-overlay {
     opacity: 1;
 }
 
-.flyInRight {
-    -webkit-animation-name: flyInRight;
-    animation-name: flyInRight;
+.toRight {
+    -webkit-animation-name: toRight;
+    animation-name: toRight;
 }
 
-.flyInLeft {
-    -webkit-animation-name: flyInLeft;
-    animation-name: flyInLeft;
+.toLeft {
+    -webkit-animation-name: toLeft;
+    animation-name: toLeft;
 }
 
 .spark-alert {
@@ -197,9 +195,9 @@ body.spark-is-activate .spark-popup-overlay {
 .confirmebutton {
     appearance: none;
     background-color: transparent;
-    border-width: 0;
     box-sizing: border-box;
-    color: #eeeeee;
+    color: #aeaeae;
+    background-color: #dbdada;
     cursor: pointer;
     display: inline-block;
     font-family: Clarkson, Helvetica, sans-serif;
@@ -262,6 +260,50 @@ body.spark-is-activate .spark-popup-overlay {
     position: relative;
 }
 
+.close-button {
+    position: relative;
+    margin: auto;
+    width: 50px;
+    cursor: pointer;
+    left: 110px;
+}
+
+.leftright {
+    height: 4px;
+    width: 20px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+}
+
+.rightleft {
+    height: 4px;
+    width: 20px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+}
+
+.close-button:hover .leftright {
+    transform: rotate(-45deg);
+    background-color: #f8f8f8;
+}
+
+.close-button:hover .rightleft {
+    transform: rotate(45deg);
+    background-color: #f8f8f8;
+}
+
+.close-button:hover label {
+    opacity: 1;
+}
+
 @media (min-width: 768px) {
     .confirmebutton-front {
         font-size: 1.25rem;
@@ -269,7 +311,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@-webkit-keyframes flyInLeft {
+@-webkit-keyframes toLeft {
     0% {
         opacity: 0;
         -webkit-transform: translateX(-20px);
@@ -282,7 +324,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@keyframes flyInLeft {
+@keyframes toLeft {
     0% {
         opacity: 0;
         -webkit-transform: translateX(-20px);
@@ -297,7 +339,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@-webkit-keyframes flyInRight {
+@-webkit-keyframes toRight {
     0% {
         opacity: 0;
         -webkit-transform: translateX(20px);
@@ -310,7 +352,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@keyframes flyInRight {
+@keyframes toRight {
     0% {
         opacity: 0;
         -webkit-transform: translateX(20px);
