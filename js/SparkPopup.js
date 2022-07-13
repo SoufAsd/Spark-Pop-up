@@ -13,7 +13,10 @@
         direction: "bottom",
         animation: "vertical",
         type: "success",
-        button: "ok"
+        title: "Welcome to Spark",
+        subtitle: "here's an example of it",
+        button: "ok",
+        title_size: "32px"
     };
 
     var types = {
@@ -63,9 +66,13 @@
                                         el.closeSpark();
                                         return false;
                                     });
+                                    if (!$(".spark-popup .spark-popup-nav:first-child .nav-inner").hasClass("animated")) {
+                                        $(".spark-popup .spark-popup-nav:first-child .nav-inner").append('<div class="spark-title" style="font-size:' + settings.title_size + '"><span>' + settings.title + '</span></div>')
+                                        $(".spark-popup .spark-popup-nav:first-child .nav-inner").append('<div class="spark-subtitle"><span>' + settings.subtitle + '</span></div>')
+                                    }
+                                    $(".spark-popup .spark-popup-nav:first-child .nav-inner").addClass("animated slideLeft")
+                                    $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").addClass("animated slideRight")
 
-                                    $(".spark-popup .spark-popup-nav:first-child .nav-inner").addClass("animated toLeft")
-                                    $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").addClass("animated toRight")
                                     $(".spark-popup-overlay:not(.clicked)").addClass("clicked").click(function() {
                                         el.closeSpark();
                                     });
@@ -86,9 +93,11 @@
             $(".circle").remove()
             $(".close-button").remove()
             $(".shadow").remove()
+            $(".spark-title").remove()
+            $(".spark-subtitle").remove()
             $(".confirmebutton").remove()
-            $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated toLeft")
-            $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated toRight")
+            $(".spark-popup .spark-popup-nav:first-child .nav-inner").removeClass("animated slideLeft")
+            $(".spark-popup .spark-popup-nav:nth-child(2) .nav-inner").removeClass("animated slideRight")
 
             if ($("body").hasClass("spark-is-activate")) {
                 $(".spark-popup").find(".spark-popup-nav").removeClass("animated")
@@ -98,4 +107,4 @@
             }
         }
     }
-}(window.$);
+}(window.$)

@@ -150,14 +150,14 @@ body.spark-is-activate .spark-popup-overlay {
     opacity: 1;
 }
 
-.toRight {
-    -webkit-animation-name: toRight;
-    animation-name: toRight;
+.slideRight {
+    -webkit-animation-name: slideRight;
+    animation-name: slideRight;
 }
 
-.toLeft {
-    -webkit-animation-name: toLeft;
-    animation-name: toLeft;
+.slideLeft {
+    -webkit-animation-name: slideLeft;
+    animation-name: slideLeft;
 }
 
 .spark-alert {
@@ -304,6 +304,25 @@ body.spark-is-activate .spark-popup-overlay {
     opacity: 1;
 }
 
+.spark-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(0px, 60px);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.675rem;
+    color: #aeaeae;
+}
+
+.spark-subtitle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(0px, 80px);
+    font-family: 'Nunito', sans-serif;
+    color: #aeaeae;
+}
+
 @media (min-width: 768px) {
     .confirmebutton-front {
         font-size: 1.25rem;
@@ -311,7 +330,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@-webkit-keyframes toLeft {
+@-webkit-keyframes slideLeft {
     0% {
         opacity: 0;
         -webkit-transform: translateX(-20px);
@@ -324,7 +343,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@keyframes toLeft {
+@keyframes slideLeft {
     0% {
         opacity: 0;
         -webkit-transform: translateX(-20px);
@@ -339,7 +358,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@-webkit-keyframes toRight {
+@-webkit-keyframes slideRight {
     0% {
         opacity: 0;
         -webkit-transform: translateX(20px);
@@ -352,7 +371,7 @@ body.spark-is-activate .spark-popup-overlay {
     }
 }
 
-@keyframes toRight {
+@keyframes slideRight {
     0% {
         opacity: 0;
         -webkit-transform: translateX(20px);
